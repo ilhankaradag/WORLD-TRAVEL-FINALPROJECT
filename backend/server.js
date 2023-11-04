@@ -1,9 +1,13 @@
 const express = require('express');
 const app = express();
 const connections = require('./connections');
-app.use(express.json());
+const cors = require('cors');
 
 const port = 7000;
+
+// middleware
+app.use(express.json());
+app.use(cors());
 
 app.get('/', (req, res) => {
   res.send('Hello World!');
